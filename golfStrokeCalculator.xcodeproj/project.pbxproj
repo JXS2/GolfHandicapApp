@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A036AB26262C80AC006FB7BD /* CourseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036AB25262C80AC006FB7BD /* CourseData.swift */; };
 		A0B984CD2624A95B00EA0438 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B984CC2624A95B00EA0438 /* TableViewCell.swift */; };
 		A0B984D02624AAE900EA0438 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B984CF2624AAE900EA0438 /* ThirdViewController.swift */; };
 		A0B984D52624AC2800EA0438 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B984D42624AC2800EA0438 /* FourthViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A036AB25262C80AC006FB7BD /* CourseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseData.swift; sourceTree = "<group>"; };
 		A0B984CC2624A95B00EA0438 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		A0B984CF2624AAE900EA0438 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		A0B984D42624AC2800EA0438 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				A0F87982261EBC700004F361 /* Player.swift */,
 				A0F87985261EBC7D0004F361 /* Course.swift */,
 				A0F87988261EBC8E0004F361 /* TeeBox.swift */,
+				A036AB25262C80AC006FB7BD /* CourseData.swift */,
 				A0B984CC2624A95B00EA0438 /* TableViewCell.swift */,
 				A0F8798B261F4C780004F361 /* ViewControllerMain.swift */,
 				A0F87972261E928E0004F361 /* Assets.xcassets */,
@@ -170,6 +173,7 @@
 				A0F87989261EBC8E0004F361 /* TeeBox.swift in Sources */,
 				A0F26DEC2620B42E00E3BB54 /* SecondViewController.swift in Sources */,
 				A0F8798F261F642A0004F361 /* FirstViewController.swift in Sources */,
+				A036AB26262C80AC006FB7BD /* CourseData.swift in Sources */,
 				A0B984CD2624A95B00EA0438 /* TableViewCell.swift in Sources */,
 				A0F87986261EBC7D0004F361 /* Course.swift in Sources */,
 				A0F8796A261E928D0004F361 /* AppDelegate.swift in Sources */,

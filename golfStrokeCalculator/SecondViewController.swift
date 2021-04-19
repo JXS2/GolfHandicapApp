@@ -55,12 +55,16 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         // Do any additional setup after loading the view.
         self.picker.delegate = self
-        self.picker.dataSource = self
+        self.picker.dataSource = (self.pickerDataInfo as! UIPickerViewDataSource)
+        //check this
         
     }
     
     
     
+    @IBAction func playerSelect(_ sender: UIButton) {
+        
+    }
     
     
     

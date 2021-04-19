@@ -8,15 +8,11 @@
 import Foundation
 
 class Course {
-    var Teeboxes : [String] = []
-    var rating = 0.0
-    var par = 0
+    var Teeboxes : [TeeBox] = []
     var name = ""
     
-    init(TBs : [String], r : Double, p : Int, cN: String) {
+    init(TBs : [TeeBox], cN: String) {
         Teeboxes = TBs
-        rating = r
-        par = p
         name = cN
     }
     
