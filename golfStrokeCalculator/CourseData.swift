@@ -43,6 +43,7 @@ class CourseData {
     }
     
     
+    
     init() {
         //self.addTeeBox(cN: <#T##String#>, TBN: <#T##String#>, sl: <#T##Double#>, rtg: <#T##Double#>, pr: <#T##Int#>)
         self.addTeeBox(cN: "Aldeen Golf Club", TBN: "Blue", sl: 132, rtg: 71.7, pr: 72)

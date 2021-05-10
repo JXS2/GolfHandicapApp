@@ -7,15 +7,26 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
+    let v1 : FirstViewController = FirstViewController()
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return v1.playerData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")!
+        cell.textLabel?.text = v1.playerData[indexPath.row].name1
+        return cell
+       
+    }
+    
     var pickerData : [Player] = [Player]()
+    var selectedData = [Player]()
     var pickerDataInfo: [String] = [String]()
-   /*
-    var pickerDataNames: [String] = [String]()
-    var pickerDataIndex : [String] = [String]()
-    var pickerDataLNames : [String] = [String]()
- */
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var tableViewPlayers: UITableView!
     
     override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
@@ -55,15 +66,23 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         // Do any additional setup after loading the view.
         self.picker.delegate = self
-        self.picker.dataSource = (self.pickerDataInfo as! UIPickerViewDataSource)
+        self.picker.dataSource = self.pickerDataInfo as? UIPickerViewDataSource
+        self.tableViewPlayers.delegate = self
+        self.tableViewPlayers.dataSource = self.selectedData as? UITableViewDataSource
         //check this
         
     }
     
-    
+    func selectedRow(inComponent component: Int) -> Int {
+        return component
+    }
     
     @IBAction func playerSelect(_ sender: UIButton) {
-        
+        //Find selected pickerwivew cell object
+        // add player to separate array and display array on tableview
+        let selectedValue = pickerData[picker.selectedRow(inComponent: 0)]
+        selectedData.append(selectedValue)
+        tableViewPlayers.reloadData()
     }
     
     
