@@ -12,18 +12,18 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return v1.playerData.count
+        return selectedData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")!
-        cell.textLabel?.text = v1.playerData[indexPath.row].name1
+        cell.textLabel?.text = selectedData[indexPath.row]
         return cell
        
     }
     
     var pickerData : [Player] = [Player]()
-    var selectedData = [Player]()
+    var selectedData = [String]()
     var pickerDataInfo: [String] = [String]()
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var tableViewPlayers: UITableView!
@@ -37,7 +37,7 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        return pickerDataInfo.count
     }
     
     internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
@@ -50,11 +50,11 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let vc = FirstViewController()
-        pickerData = vc.playerData
+        
         for player in pickerData {
-            pickerDataInfo.append(player.name1 + player.name2 + String(player.index))
+            pickerDataInfo.append(player.name1 + " " + player.name2)
         }
+        print(pickerDataInfo)
         /*
         pickerDataInfo.append(pickerDataNames)
         pickerDataInfo.append(pickerDataLNames)
@@ -66,9 +66,9 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         // Do any additional setup after loading the view.
         self.picker.delegate = self
-        self.picker.dataSource = self.pickerDataInfo as? UIPickerViewDataSource
+        self.picker.dataSource = self
         self.tableViewPlayers.delegate = self
-        self.tableViewPlayers.dataSource = self.selectedData as? UITableViewDataSource
+        self.tableViewPlayers.dataSource = self
         //check this
         
     }
@@ -78,10 +78,17 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func playerSelect(_ sender: UIButton) {
-        //Find selected pickerwivew cell object
-        // add player to separate array and display array on tableview
+       // NEED - Hide player after chosen on pickerview
         let selectedValue = pickerData[picker.selectedRow(inComponent: 0)]
-        selectedData.append(selectedValue)
+        print(selectedValue.name1)
+        var index = 0
+        for data in pickerData{
+            if( data === selectedValue){
+                break
+            }
+            index+=1
+        }
+        selectedData.append(selectedValue.name1 + "    " + selectedValue.name2 + "     " + String(selectedValue.index))
         tableViewPlayers.reloadData()
     }
     
@@ -105,3 +112,5 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     */
 
 }
+
+

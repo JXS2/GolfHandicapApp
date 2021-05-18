@@ -10,7 +10,7 @@ import UIKit
 class ThirdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     var courseDataArray = CourseData.init()
-    var courseDataSearchArray = CourseData.init()
+    var courseDataSearchArray = [TeeBox]()
     var courseChosen = TeeBox.init(s: 0, nm: "", r: 1.0, p: 72)
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -30,12 +30,12 @@ class ThirdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
    // }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return v1.playerData.count
+        return courseDataSearchArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")!
-        cell.textLabel?.text = v1.playerData[indexPath.row].name1
+        cell.textLabel?.text = courseDataSearchArray[indexPath.row].name
         return cell
     }
     
@@ -82,6 +82,9 @@ class ThirdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func confirmTFBTN(_ sender: UIButton) {
         var outputArray : [Course] = []
+        holePicker.isHidden = false
+        confirmCourse.isHidden = false
+        confirmLocBTN.isHidden = false
         if searchTF.text!.count >= 3 {
             let input : String? = (searchTF.text)
             for course in courseDataArray.courses {

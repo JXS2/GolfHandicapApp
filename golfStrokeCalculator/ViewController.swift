@@ -20,5 +20,8 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "SegueToFirstVC", sender: self)
     }
     
+    @IBAction func showInstructionsViewController(_ sender: Any) {
+        performSegue(withIdentifier: "InstructionsSegue", sender: self)
+    }
 }
 

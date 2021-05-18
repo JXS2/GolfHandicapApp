@@ -30,7 +30,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var playerInfoLabel: UILabel!
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is SecondViewController {
+            let vc = segue.destination as? SecondViewController
+            vc?.pickerData = playerData
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -93,5 +99,6 @@ func double(from textField: UITextField) -> Double {
     }
     return number
 }
+
 
 
